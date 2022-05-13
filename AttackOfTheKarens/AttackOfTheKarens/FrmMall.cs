@@ -127,7 +127,7 @@ namespace AttackOfTheKarens {
     }
 
     private bool IsWalkable(int newRow, int newCol) {
-      char[] walkableTiles = new char[] { ' ', 'o', 'K', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'L' };
+      char[] walkableTiles = new char[] { '*', 'o', 'K', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'L' };
       return walkableTiles.Contains(map[newRow][newCol]);
     }
 
