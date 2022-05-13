@@ -21,6 +21,8 @@ namespace AttackOfTheKarens {
     private PictureBox picOwner;
     private int xOwner;
     private int yOwner;
+    private int xPrevOwner;
+    private int yPrevOwner;
     private char[][] map;
     private List<Store> stores;
 
@@ -134,6 +136,7 @@ namespace AttackOfTheKarens {
     private bool CanMove(Direction dir, out int newRow, out int newCol) {
       newRow = yOwner;
       newCol = xOwner;
+      
       switch (dir) {
         case Direction.UP: newRow--; break;
         case Direction.DOWN: newRow++; break;
