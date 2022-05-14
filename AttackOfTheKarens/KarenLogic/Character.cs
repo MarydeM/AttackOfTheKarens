@@ -12,11 +12,14 @@ namespace KarenLogic {
 		public int yLocation;
 		public int xPrevLocation;
 		public int yPrevLocation;
-		public Character(PictureBox pic) {
+		/// <summary>
+		/// constructor
+		/// </summary>
+		public Character(PictureBox pic, int damage) {
 			this.pic = pic;
 			this.pic.Visible = true;
 			this.pic.BringToFront();
+			this.Damage = damage;
 		}
-
 	}
 }
