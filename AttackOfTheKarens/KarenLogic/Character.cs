@@ -10,6 +10,8 @@ namespace KarenLogic {
 		public PictureBox pic;
         public int xLocation;
 		public int yLocation;
+		public int xPrevLocation;
+		public int yPrevLocation;
 		public Character(PictureBox pic) {
 			this.pic = pic;
 			this.pic.Visible = true;
