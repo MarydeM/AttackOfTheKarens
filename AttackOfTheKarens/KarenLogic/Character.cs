@@ -10,8 +10,7 @@ namespace KarenLogic {
 		public PictureBox pic;
         public int xLocation;
 		public int yLocation;
-		public int xPrevLocation;
-		public int yPrevLocation;
+		
 		/// <summary>
 		/// constructor
 		/// </summary>

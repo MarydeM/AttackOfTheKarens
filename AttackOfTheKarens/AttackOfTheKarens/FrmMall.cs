@@ -133,21 +133,42 @@ namespace AttackOfTheKarens {
       return walkableTiles.Contains(map[newRow][newCol]);
     }
 
+    private bool IsPrevious(int newRow, int newCol)
+        {
+            if( (newCol == xPrevOwner) && (newRow == yPrevOwner))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     private bool CanMove(Direction dir, out int newRow, out int newCol) {
       newRow = yOwner;
       newCol = xOwner;
       
       switch (dir) {
-        case Direction.UP: newRow--; break;
-        case Direction.DOWN: newRow++; break;
-        case Direction.LEFT: newCol--; break;
-        case Direction.RIGHT: newCol++; break;
+        case Direction.UP:
+                    newRow--; 
+                    break;
+        case Direction.DOWN: 
+                    newRow++;
+                    break;
+        case Direction.LEFT:
+                    newCol--;
+                    break;
+        case Direction.RIGHT: 
+                    newCol++;
+                    break;
       }
-      return (IsInBounds(newRow, newCol) && IsWalkable(newRow, newCol));
+      return (IsInBounds(newRow, newCol) && IsWalkable(newRow, newCol) && !IsPrevious(newRow, newCol));
     }
 
     private new void Move(Direction dir) {
       if (CanMove(dir, out int newRow, out int newCol)) {
+        xPrevOwner = xOwner;
+        yPrevOwner = yOwner;
         yOwner = newRow;
         xOwner = newCol;
         picOwner.Top = yOwner * CELL_SIZE;
