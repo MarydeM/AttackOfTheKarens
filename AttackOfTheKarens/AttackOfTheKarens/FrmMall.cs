@@ -18,13 +18,18 @@ namespace AttackOfTheKarens {
 
     // other privates
     private SoundPlayer player;
-    private PictureBox picOwner;
-    private int xOwner;
-    private int yOwner;
+    //private PictureBox picOwner;
+    //private int xOwner;
+    //private int yOwner;
     private int xPrevOwner;
     private int yPrevOwner;
     private char[][] map;
     private List<Store> stores;
+
+
+    private Character owner;
+
+
 
     // ctor
     public FrmMall() {
@@ -76,11 +81,16 @@ namespace AttackOfTheKarens {
               stores.Add(s);
               break;
             case 'o':
-              picOwner = CreatePic(Properties.Resources.owner, top, left);
-              xOwner = left / CELL_SIZE;
-              yOwner = top / CELL_SIZE;
-              panMall.Controls.Add(picOwner);
-              break;
+                pic = CreatePic(Properties.Resources.owner, top, left);
+                owner = new Character(pic);
+                owner.xLocation = left / CELL_SIZE;
+                owner.yLocation = top / CELL_SIZE;
+                panMall.Controls.Add(owner.pic);
+                            //picOwner = CreatePic(Properties.Resources.owner, top, left);
+                            //xOwner = left / CELL_SIZE;
+                            //yOwner = top / CELL_SIZE;
+                            //panMall.Controls.Add(picOwner);
+                            break;
             case 'w': pic = CreatePic(Properties.Resources.water, top, left); break;
             case '-': pic = CreateWall(color, Properties.Resources.hline, top, left); break;
             case '|': pic = CreateWall(color, Properties.Resources.vline, top, left); break;
@@ -102,7 +112,8 @@ namespace AttackOfTheKarens {
         top += CELL_SIZE;
       }
 
-      picOwner.BringToFront();
+      //picOwner.BringToFront();
+
       panMall.Width = CELL_SIZE * map[0].Length + PANEL_PADDING;
       panMall.Height = CELL_SIZE * map.Length + PANEL_PADDING;
       this.Width = panMall.Width + FORM_PADDING + 75;
@@ -145,10 +156,12 @@ namespace AttackOfTheKarens {
             }
         }
     private bool CanMove(Direction dir, out int newRow, out int newCol) {
-      newRow = yOwner;
-      newCol = xOwner;
-      
-      switch (dir) {
+            //newRow = yOwner;
+            //newCol = xOwner;      
+      newRow = owner.yLocation;
+      newCol = owner.xLocation;
+
+            switch (dir) {
         case Direction.UP:
                     newRow--; 
                     break;
@@ -167,12 +180,12 @@ namespace AttackOfTheKarens {
 
     private new void Move(Direction dir) {
       if (CanMove(dir, out int newRow, out int newCol)) {
-        xPrevOwner = xOwner;
-        yPrevOwner = yOwner;
-        yOwner = newRow;
-        xOwner = newCol;
-        picOwner.Top = yOwner * CELL_SIZE;
-        picOwner.Left = xOwner * CELL_SIZE;
+        xPrevOwner = owner.xLocation;
+        yPrevOwner = owner.yLocation;
+        owner.yLocation = newRow;
+        owner.xLocation = newCol;
+        owner.pic.Top = owner.yLocation * CELL_SIZE;
+        owner.pic.Left = owner.xLocation * CELL_SIZE;
         char mapTile = map[newRow][newCol];
         switch (mapTile) {
           case '0':
