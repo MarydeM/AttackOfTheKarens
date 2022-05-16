@@ -77,7 +77,7 @@
             // tmrMoveOwner
             // 
             this.tmrMoveOwner.Enabled = true;
-            this.tmrMoveOwner.Interval = 2000;
+            this.tmrMoveOwner.Interval = 200;
             this.tmrMoveOwner.Tick += new System.EventHandler(this.tmrMoveOwner_Tick);
             //
             //
