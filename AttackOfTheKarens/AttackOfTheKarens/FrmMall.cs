@@ -260,12 +260,12 @@ namespace AttackOfTheKarens {
     private void button1_Click(object sender, EventArgs e)
     {
             
-            if (Game.Score >= 10)
+            if (Game.Score >= 20)
             {
                 float y = Game.Score;
-                Game.Score -= 10;
-                float x = tmrMoveOwner.Interval;
-                tmrMoveOwner.Interval -= 1;
+                Game.Score -= 20;
+                tmrMoveOwner.Interval -= 2;
+                tmrMoveManager.Interval -= 2;
             }
 
     }
