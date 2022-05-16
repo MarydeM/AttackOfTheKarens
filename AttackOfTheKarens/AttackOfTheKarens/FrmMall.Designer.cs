@@ -30,6 +30,7 @@
             this.tmrUpgrade = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdateKarens = new System.Windows.Forms.Timer(this.components);
             this.tmrMoveOwner = new System.Windows.Forms.Timer(this.components);
+            this.tmrMoveManager = new System.Windows.Forms.Timer(this.components);
             this.lblMoneySaved = new System.Windows.Forms.Label();
             this.lblMoneySavedLabel = new System.Windows.Forms.Label();
             this.tmrUpdateGame = new System.Windows.Forms.Timer(this.components);
@@ -65,7 +66,7 @@
             // 
             this.tmrUpgrade.Enabled = true;
             this.tmrUpgrade.Interval = 200;
-            this.tmrUpgrade.Tick += new System.EventHandler(this.tmrUpdateKarens_Tick);
+            this.tmrUpgrade.Tick += new System.EventHandler(this.tmrUpgrade_Tick);
             // 
             // tmrUpdateKarens
             // 
@@ -76,8 +77,13 @@
             // tmrMoveOwner
             // 
             this.tmrMoveOwner.Enabled = true;
-            this.tmrMoveOwner.Interval = 400;
+            this.tmrMoveOwner.Interval = 2000;
             this.tmrMoveOwner.Tick += new System.EventHandler(this.tmrMoveOwner_Tick);
+            //
+            //
+            this.tmrMoveManager.Enabled = true;
+            this.tmrMoveManager.Interval = 200;
+            this.tmrMoveManager.Tick += new System.EventHandler(this.tmrMoveManager_Tick);
             // 
             // lblMoneySaved
             // 
@@ -134,11 +140,11 @@
 
     private System.Windows.Forms.Panel panMall;
     private System.Windows.Forms.Timer tmrKarenSpawner;
-        // -------------------------------------------------
     private System.Windows.Forms.Timer tmrUpgrade;
 
     private System.Windows.Forms.Timer tmrUpdateKarens;
     private System.Windows.Forms.Timer tmrMoveOwner;
+    private System.Windows.Forms.Timer tmrMoveManager;
     private System.Windows.Forms.Label lblMoneySaved;
     private System.Windows.Forms.Label lblMoneySavedLabel;
     private System.Windows.Forms.Timer tmrUpdateGame;

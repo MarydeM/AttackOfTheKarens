@@ -147,10 +147,10 @@ namespace AttackOfTheKarens {
                 return false;
             }
         }
-    private bool CanMove(Direction dir, out int newRow, out int newCol)
+    private bool CanMove(Direction dir, out int newRow, out int newCol, Character emp)
     {
-        newRow = owner.yLocation;
-        newCol = owner.xLocation;
+        newRow = emp.yLocation;
+        newCol = emp.xLocation;
 
         switch (dir)
         {
@@ -171,14 +171,14 @@ namespace AttackOfTheKarens {
         
     }
 
-    private new void Move(Direction dir) {
-      if (CanMove(dir, out int newRow, out int newCol)) {
-        xPrevOwner = owner.xLocation;
-        yPrevOwner = owner.yLocation;
-        owner.yLocation = newRow;
-        owner.xLocation = newCol;
-        owner.pic.Top = owner.yLocation * CELL_SIZE;
-        owner.pic.Left = owner.xLocation * CELL_SIZE;
+    private new void Move(Direction dir, Character emp) {
+      if (CanMove(dir, out int newRow, out int newCol, emp)) {
+        xPrevOwner = emp.xLocation;
+        yPrevOwner = emp.yLocation;
+        emp.yLocation = newRow;
+        emp.xLocation = newCol;
+        emp.pic.Top = emp.yLocation * CELL_SIZE;
+        emp.pic.Left = emp.xLocation * CELL_SIZE;
         char mapTile = map[newRow][newCol];
         switch (mapTile) {
           case '0':
@@ -204,10 +204,10 @@ namespace AttackOfTheKarens {
 
     private void FrmMall_KeyUp(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
-        case Keys.Up: Move(Direction.UP); break;
-        case Keys.Down: Move(Direction.DOWN); break;
-        case Keys.Left: Move(Direction.LEFT); break;
-        case Keys.Right: Move(Direction.RIGHT); break;
+        case Keys.Up: Move(Direction.UP, owner); break;
+        case Keys.Down: Move(Direction.DOWN, owner); break;
+        case Keys.Left: Move(Direction.LEFT, owner); break;
+        case Keys.Right: Move(Direction.RIGHT, owner); break;
       }
     }
 
@@ -237,9 +237,18 @@ namespace AttackOfTheKarens {
 
     private void tmrMoveOwner_Tick(object sender, EventArgs e) {
       Direction dir = (Direction)rand.Next(4);
-        if (CanMove(dir, out int newRow, out int newCol)){
-            Move(dir);
+        if (CanMove(dir, out int newRow, out int newCol, owner)){
+            Move(dir, owner);
         }
+    }
+
+    private void tmrMoveManager_Tick(object sender, EventArgs e) {
+      if (managerPresent == true) {
+        Direction dir = (Direction)rand.Next(4);
+        if (CanMove(dir, out int newRow, out int newCol, manager)){
+            Move(dir, manager);
+        }
+      }
     }
 
     private void tmrUpdateGame_Tick(object sender, EventArgs e) {
