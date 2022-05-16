@@ -23,9 +23,9 @@ namespace AttackOfTheKarens {
 				createManager();
 			}
 
-            if (XP % 5f == 0){
-                tmrMoveOwner.Interval-= 10;
-            }
+            //if (XP % 5f == 0){
+            //    tmrMoveOwner.Interval-= 10;
+            //}
 		}
 
 
@@ -34,7 +34,7 @@ namespace AttackOfTheKarens {
             PictureBox pic = null;
             int top = 10 * CELL_SIZE; 
             int left = 8 * CELL_SIZE;
-            pic = CreatePic(Properties.Resources.Manager64, top, left);
+            pic = CreatePic(Properties.Resources.owner, top, left);
 
             manager = new Character(pic);
             manager.xLocation = left / CELL_SIZE;
