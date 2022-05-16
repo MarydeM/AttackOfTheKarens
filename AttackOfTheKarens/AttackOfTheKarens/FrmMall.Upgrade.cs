@@ -29,6 +29,11 @@ namespace AttackOfTheKarens {
                 {
                     tmrMoveOwner.Interval -= 1;
                 }
+
+                if (managerPresent == true && tmrMoveManager.Interval > 1)
+                {
+                    tmrMoveManager.Interval -= 1;
+                }
             }
         }
 

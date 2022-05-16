@@ -34,10 +34,12 @@
             this.lblMoneySaved = new System.Windows.Forms.Label();
             this.lblMoneySavedLabel = new System.Windows.Forms.Label();
             this.tmrUpdateGame = new System.Windows.Forms.Timer(this.components);
+            this.Crack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panMall
             // 
+            this.panMall.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panMall.BackColor = System.Drawing.Color.Transparent;
             this.panMall.BackgroundImage = global::AttackOfTheKarens.Properties.Resources.mall_bg;
             this.panMall.Location = new System.Drawing.Point(12, 12);
@@ -48,13 +50,17 @@
             // tmpSpeed
             // 
             this.tmpSpeed.AutoSize = true;
+            this.tmpSpeed.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tmpSpeed.BackColor = System.Drawing.Color.GreenYellow;
+            this.tmpSpeed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.tmpSpeed.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.tmpSpeed.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.tmpSpeed.Location = new System.Drawing.Point(1350, 92);
+            this.tmpSpeed.Location = new System.Drawing.Point(625, 12);
             this.tmpSpeed.Name = "tmpSpeed";
-            this.tmpSpeed.Size = new System.Drawing.Size(121, 44);
+            this.tmpSpeed.Size = new System.Drawing.Size(82, 25);
             this.tmpSpeed.TabIndex = 3;
             this.tmpSpeed.Text = "Speed Boost";
+            this.tmpSpeed.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.tmpSpeed.UseVisualStyleBackColor = false;
             this.tmpSpeed.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -79,8 +85,9 @@
             this.tmrMoveOwner.Enabled = true;
             this.tmrMoveOwner.Interval = 200;
             this.tmrMoveOwner.Tick += new System.EventHandler(this.tmrMoveOwner_Tick);
-            //
-            //
+            // 
+            // tmrMoveManager
+            // 
             this.tmrMoveManager.Enabled = true;
             this.tmrMoveManager.Interval = 300;
             this.tmrMoveManager.Tick += new System.EventHandler(this.tmrMoveManager_Tick);
@@ -114,13 +121,26 @@
             this.tmrUpdateGame.Enabled = true;
             this.tmrUpdateGame.Tick += new System.EventHandler(this.tmrUpdateGame_Tick);
             // 
+            // Crack
+            // 
+            this.Crack.BackColor = System.Drawing.Color.GreenYellow;
+            this.Crack.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Crack.Location = new System.Drawing.Point(713, 14);
+            this.Crack.Name = "Crack";
+            this.Crack.Size = new System.Drawing.Size(158, 23);
+            this.Crack.TabIndex = 4;
+            this.Crack.Text = "Give your managers crack";
+            this.Crack.UseVisualStyleBackColor = false;
+            this.Crack.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FrmMall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1167, 698);
+            this.ClientSize = new System.Drawing.Size(1214, 698);
+            this.Controls.Add(this.Crack);
             this.Controls.Add(this.tmpSpeed);
             this.Controls.Add(this.lblMoneySavedLabel);
             this.Controls.Add(this.lblMoneySaved);
@@ -149,5 +169,6 @@
     private System.Windows.Forms.Label lblMoneySavedLabel;
     private System.Windows.Forms.Timer tmrUpdateGame;
     private System.Windows.Forms.Button tmpSpeed;
+        private System.Windows.Forms.Button Crack;
     }
 }

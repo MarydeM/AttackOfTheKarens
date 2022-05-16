@@ -270,6 +270,18 @@ namespace AttackOfTheKarens {
             }
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (Game.Score >= 100 && tmrMoveManager .Interval != 1)
+            {
+                float y = Game.Score;
+                Game.Score -= 100;
+                tmrMoveOwner.Interval = 1;
+                tmrMoveManager.Interval = 1;
+
+
+            }
+        }
     }
   }
 
