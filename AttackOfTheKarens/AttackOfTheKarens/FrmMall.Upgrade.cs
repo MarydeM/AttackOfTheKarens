@@ -23,8 +23,11 @@ namespace AttackOfTheKarens {
 				createManager();
 			}
 
-            if (XP % 5f == 0){
-                tmrMoveOwner.Interval-= 10;
+            if (XP > 0 && XP % 5f == 0){
+                if (tmrMoveOwner.Interval > 1)
+                {
+                    tmrMoveOwner.Interval -= 1;
+                }
             }
 		}
 

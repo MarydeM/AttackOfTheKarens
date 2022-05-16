@@ -76,7 +76,7 @@
       // tmrMoveOwner
       // 
       this.tmrMoveOwner.Enabled = true;
-      this.tmrMoveOwner.Interval = 120;
+      this.tmrMoveOwner.Interval = 400;
       this.tmrMoveOwner.Tick += new System.EventHandler(this.tmrMoveOwner_Tick);
       // 
       // lblMoneySaved

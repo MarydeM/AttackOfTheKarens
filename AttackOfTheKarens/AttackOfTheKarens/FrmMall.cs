@@ -147,25 +147,28 @@ namespace AttackOfTheKarens {
                 return false;
             }
         }
-    private bool CanMove(Direction dir, out int newRow, out int newCol) {
-      newRow = owner.yLocation;
-      newCol = owner.xLocation;
+    private bool CanMove(Direction dir, out int newRow, out int newCol)
+    {
+        newRow = owner.yLocation;
+        newCol = owner.xLocation;
 
-            switch (dir) {
-        case Direction.UP:
-                    newRow--; 
-                    break;
-        case Direction.DOWN: 
-                    newRow++;
-                    break;
-        case Direction.LEFT:
-                    newCol--;
-                    break;
-        case Direction.RIGHT: 
-                    newCol++;
-                    break;
-      }
-      return (IsInBounds(newRow, newCol) && IsWalkable(newRow, newCol) && !IsPrevious(newRow, newCol));
+        switch (dir)
+        {
+            case Direction.UP:
+                newRow--;
+                break;
+            case Direction.DOWN:
+                newRow++;
+                break;
+            case Direction.LEFT:
+                newCol--;
+                break;
+            case Direction.RIGHT:
+                newCol++;
+                break;
+        }
+        return (IsInBounds(newRow, newCol) && IsWalkable(newRow, newCol) && !IsPrevious(newRow, newCol));
+        
     }
 
     private new void Move(Direction dir) {
@@ -234,7 +237,9 @@ namespace AttackOfTheKarens {
 
     private void tmrMoveOwner_Tick(object sender, EventArgs e) {
       Direction dir = (Direction)rand.Next(4);
-      Move(dir);
+        if (CanMove(dir, out int newRow, out int newCol)){
+            Move(dir);
+        }
     }
 
     private void tmrUpdateGame_Tick(object sender, EventArgs e) {
