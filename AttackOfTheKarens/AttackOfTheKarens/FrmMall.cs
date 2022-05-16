@@ -136,9 +136,9 @@ namespace AttackOfTheKarens {
       return walkableTiles.Contains(map[newRow][newCol]);
     }
 
-    private bool IsPrevious(int newRow, int newCol)
+    private bool IsPrevious(int newRow, int newCol, Character emp )
         {
-            if( (newCol == xPrevOwner) && (newRow == yPrevOwner))
+            if( (newCol == emp.xPreLocation) && (newRow == emp.yPreLocation))
             {
                 return true;
             }
@@ -167,14 +167,14 @@ namespace AttackOfTheKarens {
                 newCol++;
                 break;
         }
-        return (IsInBounds(newRow, newCol) && IsWalkable(newRow, newCol) && !IsPrevious(newRow, newCol));
+        return (IsInBounds(newRow, newCol) && IsWalkable(newRow, newCol) && !IsPrevious(newRow, newCol, emp));
         
     }
 
     private new void Move(Direction dir, Character emp) {
       if (CanMove(dir, out int newRow, out int newCol, emp)) {
-        xPrevOwner = emp.xLocation;
-        yPrevOwner = emp.yLocation;
+        emp.xPreLocation = emp.xLocation;
+        emp.yPreLocation = emp.yLocation;
         emp.yLocation = newRow;
         emp.xLocation = newCol;
         emp.pic.Top = emp.yLocation * CELL_SIZE;
@@ -237,17 +237,13 @@ namespace AttackOfTheKarens {
 
     private void tmrMoveOwner_Tick(object sender, EventArgs e) {
       Direction dir = (Direction)rand.Next(4);
-        if (CanMove(dir, out int newRow, out int newCol, owner)){
-            Move(dir, owner);
-        }
+      Move(dir, owner);
     }
 
     private void tmrMoveManager_Tick(object sender, EventArgs e) {
       if (managerPresent == true) {
         Direction dir = (Direction)rand.Next(4);
-        if (CanMove(dir, out int newRow, out int newCol, manager)){
-            Move(dir, manager);
-        }
+        Move(dir, manager);
       }
     }
 

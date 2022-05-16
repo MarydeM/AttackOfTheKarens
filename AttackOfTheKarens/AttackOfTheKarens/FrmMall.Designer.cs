@@ -82,7 +82,7 @@
             //
             //
             this.tmrMoveManager.Enabled = true;
-            this.tmrMoveManager.Interval = 200;
+            this.tmrMoveManager.Interval = 300;
             this.tmrMoveManager.Tick += new System.EventHandler(this.tmrMoveManager_Tick);
             // 
             // lblMoneySaved
