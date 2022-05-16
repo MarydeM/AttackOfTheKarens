@@ -22,6 +22,10 @@ namespace AttackOfTheKarens {
 			if (XP > 15.0 && managerPresent == false) {
 				createManager();
 			}
+
+            if (XP % 5f == 0){
+                tmrMoveOwner.Interval-= 10;
+            }
 		}
 
 

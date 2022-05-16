@@ -38,7 +38,7 @@ namespace KarenLogic {
     public void Damage(int amount) {
       Health -= amount;
       if (Health < 0) {
-        Game.AddToScore(5.95f);
+        Game.AddToScore(6.00f);
         this.pic.Visible = false;
         this.IsPresent = false;
       }

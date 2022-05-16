@@ -60,7 +60,7 @@
       // tmrUpdateUpgrade
       // 
       this.tmrUpgrade.Enabled = true;
-      this.tmrUpgrade.Interval = 40;
+      this.tmrUpgrade.Interval = 200;
       this.tmrUpgrade.Tick += new System.EventHandler(this.tmrUpdateKarens_Tick);
       //
 
@@ -70,7 +70,7 @@
       // tmrUpdateKarens
       // 
       this.tmrUpdateKarens.Enabled = true;
-      this.tmrUpdateKarens.Interval = 200;
+      this.tmrUpdateKarens.Interval = 40;
       this.tmrUpdateKarens.Tick += new System.EventHandler(this.tmrUpdateKarens_Tick);
       // 
       // tmrMoveOwner
