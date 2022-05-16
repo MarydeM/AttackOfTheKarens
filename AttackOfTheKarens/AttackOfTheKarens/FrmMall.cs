@@ -245,5 +245,20 @@ namespace AttackOfTheKarens {
     private void tmrUpdateGame_Tick(object sender, EventArgs e) {
       lblMoneySaved.Text = Game.Score.ToString("$ #,##0.00");
     }
+
+   
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+            
+            if (Game.Score >= 10)
+            {
+                float y = Game.Score;
+                Game.Score -= 10;
+                float x = tmrMoveOwner.Interval;
+                tmrMoveOwner.Interval -= 1;
+            }
+
+    }
   }
 }
