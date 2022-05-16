@@ -18,17 +18,14 @@ namespace AttackOfTheKarens {
 
     // other privates
     private SoundPlayer player;
-    //private PictureBox picOwner;
-    //private int xOwner;
-    //private int yOwner;
     private int xPrevOwner;
     private int yPrevOwner;
     private char[][] map;
     private List<Store> stores;
-
-
     private Character owner;
-
+    //private Upgrade upgrade = new Upgrade(CELL_SIZE);
+    //public Character manager;
+    
 
 
     // ctor
@@ -86,11 +83,7 @@ namespace AttackOfTheKarens {
                 owner.xLocation = left / CELL_SIZE;
                 owner.yLocation = top / CELL_SIZE;
                 panMall.Controls.Add(owner.pic);
-                            //picOwner = CreatePic(Properties.Resources.owner, top, left);
-                            //xOwner = left / CELL_SIZE;
-                            //yOwner = top / CELL_SIZE;
-                            //panMall.Controls.Add(picOwner);
-                            break;
+                break;
             case 'w': pic = CreatePic(Properties.Resources.water, top, left); break;
             case '-': pic = CreateWall(color, Properties.Resources.hline, top, left); break;
             case '|': pic = CreateWall(color, Properties.Resources.vline, top, left); break;
@@ -112,7 +105,6 @@ namespace AttackOfTheKarens {
         top += CELL_SIZE;
       }
 
-      //picOwner.BringToFront();
 
       panMall.Width = CELL_SIZE * map[0].Length + PANEL_PADDING;
       panMall.Height = CELL_SIZE * map.Length + PANEL_PADDING;
@@ -156,8 +148,6 @@ namespace AttackOfTheKarens {
             }
         }
     private bool CanMove(Direction dir, out int newRow, out int newCol) {
-            //newRow = yOwner;
-            //newCol = xOwner;      
       newRow = owner.yLocation;
       newCol = owner.xLocation;
 
@@ -222,6 +212,12 @@ namespace AttackOfTheKarens {
       Store s = stores[rand.Next(stores.Count)];
       s.ActivateTheKaren();
     }
+
+//________________________________
+    private void tmrUpgrade_Tick(object sender, EventArgs e) {
+       check(Game.Score);
+    }
+
 
     private void FrmMall_FormClosed(object sender, FormClosedEventArgs e) {
       Game.openForms.Remove(this);

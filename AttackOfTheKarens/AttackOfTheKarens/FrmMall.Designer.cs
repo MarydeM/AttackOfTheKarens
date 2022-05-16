@@ -26,6 +26,11 @@
       this.components = new System.ComponentModel.Container();
       this.panMall = new System.Windows.Forms.Panel();
       this.tmrKarenSpawner = new System.Windows.Forms.Timer(this.components);
+
+//---------------------------
+      this.tmrUpgrade = new System.Windows.Forms.Timer(this.components);
+
+
       this.tmrUpdateKarens = new System.Windows.Forms.Timer(this.components);
       this.tmrMoveOwner = new System.Windows.Forms.Timer(this.components);
       this.lblMoneySaved = new System.Windows.Forms.Label();
@@ -45,11 +50,27 @@
       // tmrKarenSpawner
       // 
       this.tmrKarenSpawner.Tick += new System.EventHandler(this.tmrKarenSpawner_Tick);
+
+
+//-------------------------------
+
+      // tmrUpgrade
+      // 
+      this.tmrUpgrade.Tick += new System.EventHandler(this.tmrUpgrade_Tick);
+      // tmrUpdateUpgrade
+      // 
+      this.tmrUpgrade.Enabled = true;
+      this.tmrUpgrade.Interval = 40;
+      this.tmrUpgrade.Tick += new System.EventHandler(this.tmrUpdateKarens_Tick);
+      //
+
+
+
       // 
       // tmrUpdateKarens
       // 
       this.tmrUpdateKarens.Enabled = true;
-      this.tmrUpdateKarens.Interval = 40;
+      this.tmrUpdateKarens.Interval = 200;
       this.tmrUpdateKarens.Tick += new System.EventHandler(this.tmrUpdateKarens_Tick);
       // 
       // tmrMoveOwner
@@ -112,6 +133,9 @@
 
     private System.Windows.Forms.Panel panMall;
     private System.Windows.Forms.Timer tmrKarenSpawner;
+        // -------------------------------------------------
+    private System.Windows.Forms.Timer tmrUpgrade;
+
     private System.Windows.Forms.Timer tmrUpdateKarens;
     private System.Windows.Forms.Timer tmrMoveOwner;
     private System.Windows.Forms.Label lblMoneySaved;
