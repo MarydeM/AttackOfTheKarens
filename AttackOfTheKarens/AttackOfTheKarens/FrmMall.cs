@@ -251,27 +251,24 @@ namespace AttackOfTheKarens {
       lblMoneySaved.Text = Game.Score.ToString("$ #,##0.00");
     }
 
-   
 
-    private void button1_Click(object sender, EventArgs e)
-    {
 
-            if (Game.Score >= 20)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (tmrMoveOwner.Interval > 2 && tmrMoveManager.Interval > 2)
             {
-                float y = Game.Score;
-                Game.Score -= 20;
-                if (tmrMoveOwner.Interval > 2)
-                {
-                    tmrMoveOwner.Interval -= 2;
-                }
 
-                if (tmrMoveManager.Interval > 2)
+                if (Game.Score >= 20)
                 {
+                    float y = Game.Score;
+                    Game.Score -= 20;
+                    tmrMoveOwner.Interval -= 2;
                     tmrMoveManager.Interval -= 2;
 
+                    
                 }
             }
-            }
+        }
 
     }
   }
