@@ -249,6 +249,8 @@ namespace AttackOfTheKarens {
 
     private void tmrUpdateGame_Tick(object sender, EventArgs e) {
       lblMoneySaved.Text = Game.Score.ToString("$ #,##0.00");
+      XP.Text = owner.GetCurrentXP().ToString(" #,##0");
+      Level.Text = owner.GetLevel().ToString(" #.##0");
     }
 
 
@@ -281,6 +283,26 @@ namespace AttackOfTheKarens {
 
 
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void XP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
   }

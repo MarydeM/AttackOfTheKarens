@@ -32,9 +32,13 @@
             this.tmrMoveOwner = new System.Windows.Forms.Timer(this.components);
             this.tmrMoveManager = new System.Windows.Forms.Timer(this.components);
             this.lblMoneySaved = new System.Windows.Forms.Label();
-            this.lblMoneySavedLabel = new System.Windows.Forms.Label();
             this.tmrUpdateGame = new System.Windows.Forms.Timer(this.components);
             this.Crack = new System.Windows.Forms.Button();
+            this.lblMoneySavedLabel = new System.Windows.Forms.Label();
+            this.XPLabel = new System.Windows.Forms.Label();
+            this.XP = new System.Windows.Forms.Label();
+            this.Level = new System.Windows.Forms.Label();
+            this.LevelLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panMall
@@ -55,7 +59,7 @@
             this.tmpSpeed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.tmpSpeed.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.tmpSpeed.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.tmpSpeed.Location = new System.Drawing.Point(625, 12);
+            this.tmpSpeed.Location = new System.Drawing.Point(579, 2);
             this.tmpSpeed.Name = "tmpSpeed";
             this.tmpSpeed.Size = new System.Drawing.Size(82, 25);
             this.tmpSpeed.TabIndex = 3;
@@ -97,24 +101,12 @@
             this.lblMoneySaved.AutoSize = true;
             this.lblMoneySaved.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMoneySaved.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblMoneySaved.Location = new System.Drawing.Point(1075, -1);
+            this.lblMoneySaved.Location = new System.Drawing.Point(1115, 2);
             this.lblMoneySaved.Name = "lblMoneySaved";
             this.lblMoneySaved.Size = new System.Drawing.Size(98, 32);
             this.lblMoneySaved.TabIndex = 1;
             this.lblMoneySaved.Text = "$ 00.00";
             this.lblMoneySaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblMoneySavedLabel
-            // 
-            this.lblMoneySavedLabel.AutoSize = true;
-            this.lblMoneySavedLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMoneySavedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblMoneySavedLabel.Location = new System.Drawing.Point(917, 6);
-            this.lblMoneySavedLabel.Name = "lblMoneySavedLabel";
-            this.lblMoneySavedLabel.Size = new System.Drawing.Size(137, 25);
-            this.lblMoneySavedLabel.TabIndex = 2;
-            this.lblMoneySavedLabel.Text = "Money Saved:";
-            this.lblMoneySavedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tmrUpdateGame
             // 
@@ -125,13 +117,73 @@
             // 
             this.Crack.BackColor = System.Drawing.Color.GreenYellow;
             this.Crack.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Crack.Location = new System.Drawing.Point(713, 14);
+            this.Crack.Location = new System.Drawing.Point(667, 4);
             this.Crack.Name = "Crack";
             this.Crack.Size = new System.Drawing.Size(158, 23);
             this.Crack.TabIndex = 4;
             this.Crack.Text = "Give your managers crack";
             this.Crack.UseVisualStyleBackColor = false;
             this.Crack.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // lblMoneySavedLabel
+            // 
+            this.lblMoneySavedLabel.AutoSize = true;
+            this.lblMoneySavedLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMoneySavedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblMoneySavedLabel.Location = new System.Drawing.Point(972, 8);
+            this.lblMoneySavedLabel.Name = "lblMoneySavedLabel";
+            this.lblMoneySavedLabel.Size = new System.Drawing.Size(137, 25);
+            this.lblMoneySavedLabel.TabIndex = 2;
+            this.lblMoneySavedLabel.Text = "Money Saved:";
+            this.lblMoneySavedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // XPLabel
+            // 
+            this.XPLabel.AutoSize = true;
+            this.XPLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.XPLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.XPLabel.Location = new System.Drawing.Point(974, 2);
+            this.XPLabel.Name = "XPLabel";
+            this.XPLabel.Size = new System.Drawing.Size(41, 25);
+            this.XPLabel.TabIndex = 2;
+            this.XPLabel.Text = "XP:";
+            this.XPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // XP
+            // 
+            this.XP.AutoSize = true;
+            this.XP.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.XP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.XP.Location = new System.Drawing.Point(1009, -5);
+            this.XP.Name = "XP";
+            this.XP.Size = new System.Drawing.Size(28, 32);
+            this.XP.TabIndex = 1;
+            this.XP.Text = "0";
+            this.XP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Level
+            // 
+            this.Level.AutoSize = true;
+            this.Level.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Level.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Level.Location = new System.Drawing.Point(1115, -5);
+            this.Level.Name = "Level";
+            this.Level.Size = new System.Drawing.Size(28, 32);
+            this.Level.TabIndex = 5;
+            this.Level.Text = "0";
+            this.Level.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LevelLabel
+            // 
+            this.LevelLabel.AutoSize = true;
+            this.LevelLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LevelLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.LevelLabel.Location = new System.Drawing.Point(1057, 2);
+            this.LevelLabel.Name = "LevelLabel";
+            this.LevelLabel.Size = new System.Drawing.Size(62, 25);
+            this.LevelLabel.TabIndex = 6;
+            this.LevelLabel.Text = "Level:";
+            this.LevelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmMall
             // 
@@ -140,6 +192,10 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1214, 698);
+            this.Controls.Add(this.Level);
+            this.Controls.Add(this.LevelLabel);
+            this.Controls.Add(this.XP);
+            this.Controls.Add(this.XPLabel);
             this.Controls.Add(this.Crack);
             this.Controls.Add(this.tmpSpeed);
             this.Controls.Add(this.lblMoneySavedLabel);
@@ -166,9 +222,13 @@
     private System.Windows.Forms.Timer tmrMoveOwner;
     private System.Windows.Forms.Timer tmrMoveManager;
     private System.Windows.Forms.Label lblMoneySaved;
-    private System.Windows.Forms.Label lblMoneySavedLabel;
     private System.Windows.Forms.Timer tmrUpdateGame;
     private System.Windows.Forms.Button tmpSpeed;
-        private System.Windows.Forms.Button Crack;
+    private System.Windows.Forms.Button Crack;
+    private System.Windows.Forms.Label lblMoneySavedLabel;
+    private System.Windows.Forms.Label XPLabel;
+    private System.Windows.Forms.Label XP;
+        private System.Windows.Forms.Label Level;
+        private System.Windows.Forms.Label LevelLabel;
     }
 }
