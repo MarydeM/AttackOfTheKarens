@@ -230,7 +230,7 @@ namespace AttackOfTheKarens {
     private void tmrUpdateKarens_Tick(object sender, EventArgs e) {
       if (stores != null && stores.Count > 0) {
         foreach (Store store in stores) {
-          store.Update();
+          store.Update(owner);
         }
       }
     }

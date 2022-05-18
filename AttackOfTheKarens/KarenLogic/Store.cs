@@ -19,9 +19,10 @@
       containsOwner = false;
     }
 
-    public void Update() {
-      if (karen.IsPresent && containsOwner) {
-        karen.Damage(1);
+    public void Update(Character c) {
+      if (karen.IsPresent && containsOwner) 
+      {
+                karen.Damage(c.GetDamage(), c);
       }
     }
   }
